@@ -14,7 +14,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)]()
 
 [Features](#-key-features) • [Security](#-security-10out-of-10) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [Architecture](#-system-architecture)
-
+<p align="center">
+  <a href="https://hits.sh/github.com/prasangapokharel/crypto-icons/"><img src="https://hits.sh/github.com/prasangapokharel/crypto-icons.svg?style=flat-square&label=Page%20Views&extra_count=0&color=1E88E5&logo=eye" alt="Page Views" /></a>
+</p>
 </div>
 
 ---
