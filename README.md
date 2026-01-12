@@ -216,6 +216,23 @@ PHN Blockchain - Security-First Architecture
 └──────────────────────────────────────────────────────────────┘
 ```
 
+### Network Architecture
+
+#### Node Synchronization
+![Node Sync Architecture](docs/architecture/image/node%20sync.png)
+
+Multi-node network with automatic peer synchronization and health monitoring.
+
+#### Gossip Protocol
+![Gossip Protocol](docs/architecture/image/gossip%20.png)
+
+Fast block propagation using gossip protocol for efficient peer-to-peer broadcasting.
+
+#### Tunnel Transfer System
+![Tunnel Transfer](docs/architecture/image/tunnel%20transfer.png)
+
+Direct encrypted miner-to-miner communication using UDP protocol.
+
 ### Security Flow
 
 ```
