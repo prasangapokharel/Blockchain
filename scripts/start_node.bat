@@ -1,0 +1,3 @@
+@echo off
+echo Starting PHN Blockchain Node...
+python app/main.py
