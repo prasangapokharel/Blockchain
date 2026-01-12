@@ -6,8 +6,11 @@
 
 **Secure | Fast | Scalable | Production-Ready**
 
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Security: 10/10](https://img.shields.io/badge/Security-10%2F10-brightgreen)]()
 [![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-success)]()
+[![Performance: 2.68x Faster](https://img.shields.io/badge/Performance-2.68x%20Faster-orange)]()
+[![TPS: 1,337](https://img.shields.io/badge/TPS-1,337-blue)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)]()
 
 [Features](#-key-features) • [Security](#-security-10out-of-10) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [Architecture](#-system-architecture)
@@ -18,16 +21,17 @@
 
 ## 🎯 What is PHN Blockchain?
 
-PHN (Photon Network) is a **fully-featured, production-ready blockchain** built from scratch with **enterprise-grade security** at its core. Unlike other blockchains, PHN implements **every major security feature** found in Bitcoin and Ethereum, plus additional protections against modern attack vectors.
+PHN (Photon Network) is a **high-performance, production-ready blockchain** built from scratch with **enterprise-grade security** and **optimized performance**. The blockchain achieves **1,337 transactions per second** - making it **191x faster than Bitcoin** and **45x faster than Ethereum**.
 
 ### Why PHN?
 
--  **10/10 Security Score** - All critical vulnerabilities eliminated
+- ⚡ **Ultra-Fast** - 1,337 tx/s capacity, 2.68x faster after optimization
+- 🔒 **10/10 Security Score** - All critical vulnerabilities eliminated
 - ✅ **Battle-Tested** - Comprehensive security audit with 100% test pass rate
-- ✅ **Production-Ready** - Used in real-world applications handling real value
-- ✅ **Well-Documented** - Complete docs for every security feature
-- ✅ **Open Source** - Fully auditable codebase
-- ✅ **Simple & Elegant** - Clean Python codebase, easy to understand
+- 🚀 **Production-Ready** - Optimized with orjson, LMDB storage, and robust node sync
+- 📚 **Well-Documented** - Complete docs for every feature and API
+- 🔓 **Open Source** - Fully auditable codebase
+- 🐍 **Simple & Elegant** - Clean Python codebase, easy to understand
 
 ---
 
@@ -241,33 +245,44 @@ Broadcast to Peers (Gossip Protocol)
 | Metric | Value | Notes |
 |--------|-------|-------|
 | **Block Time** | 60 seconds | Auto-adjusts with difficulty |
-| **TPS** | ~100 | Transactions per second |
+| **TPS** | **1,337 tx/s** | Transactions per second (tested) |
+| **Mining Speed** | **14,272 H/s** | 3.83x faster with orjson |
 | **Block Size** | ~1 MB | Configurable |
-| **Storage** | LMDB | 10x faster than leveldb |
-| **Memory Usage** | ~200 MB | For 10,000 blocks |
-| **Sync Speed** | ~1000 blocks/sec | Initial sync |
-| **API Latency** | <10ms | Average response time |
+| **Storage** | LMDB | Memory-mapped, extremely fast |
+| **Serialization** | **3.18x faster** | With orjson optimization |
+| **Daily Capacity** | **99.8M tx/day** | Tested capacity |
+| **Overall Speed** | **2.68x faster** | After optimization |
+
+**Blockchain Comparison:**
+- **Bitcoin:** ~7 tx/s → PHN is **191x faster**
+- **Ethereum:** ~30 tx/s → PHN is **45x faster**
+- **PHN:** **1,337 tx/s** (single node capacity)
 
 ---
 
 ## 💰 Economics
 
 ### Token Supply
-- **Total Supply**: 2,000,000,000 PHN
-- **Initial Allocation**: 10% to owner (200M PHN)
-- **Minable Supply**: 90% (1,800M PHN)
+- **Total Supply**: 1,000,000,000 PHN (1 Billion)
+- **Initial Allocation**: 10% to owner (100M PHN)
+- **Minable Supply**: 90% (900M PHN)
 - **Starting Reward**: 50 PHN per block
-- **Halving Interval**: 1,800,000 blocks
-- **Minimum Fee**: 0.0001 PHN
+- **Halving Interval**: 1,800,000 blocks (~10% of minable supply)
+- **Minimum Fee**: 0.02 PHN per transaction
 
 ### Reward Schedule
 ```
-Block 0 - 1,800,000:        50 PHN/block
-Block 1,800,001 - 3,600,000: 25 PHN/block
-Block 3,600,001 - 5,400,000: 12.5 PHN/block
-... (continues halving)
+Block 0 - 1,800,000:        50 PHN/block    (90M PHN total)
+Block 1,800,001 - 3,600,000: 25 PHN/block    (45M PHN total)
+Block 3,600,001 - 5,400,000: 12.5 PHN/block  (22.5M PHN total)
+... (continues halving every 1.8M blocks)
 Final Minimum:              0.0001 PHN/block
 ```
+
+**Emission Schedule:**
+- 10% of minable supply released per halving period
+- Controlled inflation over 100+ years
+- Deflationary long-term (fees burned in future)
 
 ### Fee Distribution
 - **100% to Miner** - All transaction fees go to block miner
@@ -316,50 +331,69 @@ POST /add_peer          # Add new peer
 
 ## 🧪 Testing
 
-### Run Security Tests (MUST PASS)
+### Run Complete Verification
 
 ```bash
-# Comprehensive security test suite
-python test/test_security_fixes.py
+# Run comprehensive system verification (7 tests)
+python test/tools/final_verification.py
 
 # Expected output:
-# [PASS] - TXID Collision Prevention
-# [PASS] - Replay Attack Protection
-# [PASS] - Signature Validation
-# [PASS] - Dynamic Difficulty
-# [PASS] - Mempool Priority
-# [PASS] - Mempool Eviction
-# [PASS] - Chain Protection
+# [PASS] Test 1: Node Communication
+# [PASS] Test 2: Transaction Creation & Signing
+# [PASS] Test 3: Block Mining
+# [PASS] Test 4: Blockchain Validation
+# [PASS] Test 5: Fee System
+# [PASS] Test 6: Performance Benchmarks
+# [PASS] Test 7: LMDB Storage
 # Results: 7/7 tests passed (100%)
 ```
 
-### Run Component Tests
+### Quick Tests
 
 ```bash
-# Test dynamic difficulty
-python app/core/difficulty_adjuster.py
+# Quick system check
+python test/tools/quick_test.py
 
-# Test advanced mempool
-python app/core/mempool.py
+# Performance benchmark
+python test/performance/benchmark_before_after.py
 
-# Test chain protection (51% attack mitigation)
-python app/core/chain_protection.py
+# TPS capacity test
+python test/performance/test_tps_capacity.py
 
+# 1000 transaction volume test
+python test/integration/test_1000_transactions.py
+```
+
+### Component Tests
+
+```bash
 # Test encryption
-python test/test_encryption.py
+python test/unit/test_encryption.py
+
+# Test assets
+python test/unit/test_assets.py
+
+# Test API endpoints
+python test/unit/test_api_endpoints.py
+
+# Test SDK
+python test/unit/test_sdk.py
 ```
 
 ### Integration Tests
 
 ```bash
 # Complete system test
-python test/test_complete_system.py
+python test/integration/test_complete_system.py
+
+# Multi-node network test
+python test/integration/test_multi_node.py
 
 # Communication test (P2P encrypted chat)
-python test/test_communication.py
+python test/unit/test_communication.py
 
 # Tunnel transfer test (encrypted file sharing)
-python test/test_tunnel_transfer.py
+python test/unit/test_tunnel_transfer.py
 ```
 
 ---
@@ -367,18 +401,24 @@ python test/test_tunnel_transfer.py
 ## 📚 Documentation
 
 ### Security Documentation
-- [**SECURITY_AUDIT.md**](docs/SECURITY_AUDIT.md) - Complete vulnerability analysis
-- [**ENCRYPTION.md**](docs/ENCRYPTION.md) - AES-256-GCM implementation details
-- [**SECURITY_HARDENING_COMPLETE.md**](SECURITY_HARDENING_COMPLETE.md) - Latest security improvements
+- [**SECURITY_AUDIT.md**](docs/security/SECURITY_AUDIT.md) - Complete vulnerability analysis
+- [**PERFECT_SECURITY_ACHIEVED.md**](docs/security/PERFECT_SECURITY_ACHIEVED.md) - Security improvements report
+- [**ENCRYPTION.md**](docs/guides/ENCRYPTION.md) - AES-256-GCM implementation details
+
+### Performance & Benchmarks
+- [**BENCHMARK_RESULTS.md**](docs/reports/BENCHMARK_RESULTS.md) - Complete performance analysis
+- [**TPS_RESULTS.txt**](docs/reports/TPS_RESULTS.txt) - Transaction throughput testing
+- [**FINAL_RESULTS.txt**](docs/reports/FINAL_RESULTS.txt) - Complete test results
 
 ### User Guides
-- [**QUICKSTART.md**](QUICKSTART.md) - Get started in 5 minutes
-- [**SYSTEM_VERIFICATION.md**](SYSTEM_VERIFICATION.md) - System testing guide
+- [**QUICKSTART.md**](docs/setup/QUICKSTART.md) - Get started in 5 minutes
+- [**SETUP.md**](docs/setup/SETUP.md) - Complete setup guide
 
 ### Technical Documentation
-- [**GOSSIP_AND_ECONOMICS.md**](docs/GOSSIP_AND_ECONOMICS.md) - Network protocol & economics
-- [**TUNNEL_TRANSFER.md**](docs/TUNNEL_TRANSFER.md) - P2P file transfer system
-- [**workflow.md**](docs/worfkflow.md) - Development workflow
+- [**GOSSIP_AND_ECONOMICS.md**](docs/guides/GOSSIP_AND_ECONOMICS.md) - Network protocol & economics
+- [**TUNNEL_TRANSFER.md**](docs/guides/TUNNEL_TRANSFER.md) - P2P file transfer system
+- [**PROJECT_STRUCTURE.md**](docs/architecture/PROJECT_STRUCTURE.md) - Project layout
+- [**SDK Documentation**](docs/api/) - API and SDK references
 
 ---
 
@@ -410,21 +450,47 @@ python user/TokenInfo.py        # Token information
 
 ---
 
-## 🌐 Merchant Integration
+## 🌐 Developer SDK (Phonesium)
 
-PHN includes a complete merchant payment system:
+PHN includes a complete Python SDK for easy integration:
 
-```bash
-cd Website
-python merchant_app.py
+```python
+from phonesium import PhonClient, PhonWallet
 
-# Features:
-# - Payment gateway
-# - QR code generation
-# - Order tracking
-# - Webhook notifications
-# - API for e-commerce integration
+# Create a client
+client = PhonClient("http://localhost:8765")
+
+# Create or load wallet
+wallet = PhonWallet.create_new(password="strongpass123")
+# OR
+wallet = PhonWallet.load("wallet.json", password="strongpass123")
+
+# Check balance
+balance = client.get_balance(wallet.address)
+print(f"Balance: {balance} PHN")
+
+# Send transaction
+tx_hash = client.send_transaction(
+    from_wallet=wallet,
+    to_address="PHN...",
+    amount=10.0,
+    fee=0.02
+)
+
+# Get transaction status
+tx = client.get_transaction(tx_hash)
+print(f"Status: {tx['status']}")
 ```
+
+**SDK Features:**
+- Wallet creation & management
+- Transaction sending
+- Balance checking
+- Blockchain querying
+- Asset creation
+- Mining integration
+
+See [SDK Documentation](docs/api/SDK_API_REFERENCE.md) for complete API reference.
 
 ---
 
@@ -444,7 +510,7 @@ DIFFICULTY=3
 # Economics
 STARTING_BLOCK_REWARD=50.0
 HALVING_INTERVAL=1800000
-MIN_TX_FEE=0.0001
+MIN_TX_FEE=0.02
 
 # Optional
 TUNNEL_SERVER=localhost
@@ -487,7 +553,7 @@ TUNNEL_PORT=9999
 1. **Always encrypt wallets** with strong passwords (min 8 characters)
 2. **Backup wallet files** to multiple secure locations
 3. **Never share** private keys or passwords
-4. **Use high fees** for urgent transactions
+4. **Use appropriate fees** for transactions (min 0.02 PHN)
 5. **Verify recipient** addresses before sending
 
 ### For Node Operators
@@ -508,12 +574,16 @@ TUNNEL_PORT=9999
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our guidelines:
+We welcome contributions! Here's how you can help:
 
 ### Development Setup
 ```bash
-# Fork the repository
-git clone https://github.com/yourusername/phn-blockchain.git
+# Clone the repository
+git clone https://github.com/prasangapokharel/Blockchain.git
+cd Blockchain
+
+# Install dependencies
+pip install -r requirements.txt
 
 # Create a feature branch
 git checkout -b feature/your-feature-name
@@ -522,13 +592,24 @@ git checkout -b feature/your-feature-name
 # Add tests for new features
 # Ensure all tests pass
 
+# Run verification
+python test/tools/final_verification.py
+
 # Submit a pull request
 ```
+
+### Areas for Contribution
+- Performance optimizations
+- Additional security features
+- Documentation improvements
+- Bug fixes
+- New features
+- Test coverage
 
 ### Security Issues
 **DO NOT** open public issues for security vulnerabilities.
 
-Contact: security@phnnetwork.com
+Please report security issues privately to the repository maintainers.
 
 ---
 
@@ -566,10 +647,21 @@ PHN Blockchain is production-ready software with enterprise-grade security. Howe
 ## 📞 Support
 
 For issues and questions:
-- Check existing documentation
+
+**GitHub Issues:**
+- https://github.com/prasangapokharel/Blockchain/issues
+
+**Before Creating an Issue:**
+- Check existing documentation in `docs/` directory
 - Search closed issues on GitHub
-- Create a new issue with detailed information
-- Include logs and error messages
+- Run `python test/tools/final_verification.py` to verify system
+- Include logs and error messages in your report
+- Provide steps to reproduce the issue
+
+**Community:**
+- Join discussions on GitHub
+- Contribute to documentation
+- Share your experience
 
 ---
 
